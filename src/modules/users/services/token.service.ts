@@ -14,7 +14,7 @@ export class TokenService {
   signAccessToken(payload: Omit<JwtPayload, 'type'>): string {
     return jwt.sign(
       { ...payload, type: 'access' },
-      //this.accessSecret,
+      '',
       {
         algorithm: 'HS256',
         expiresIn: this.accessExpiresIn,
@@ -24,7 +24,7 @@ export class TokenService {
 
   verifyAccessToken(token: string): JwtPayload {
     try {
-      const decoded = jwt.verify(token, //this.accessSecret,
+      const decoded = jwt.verify(token, '',
          {
         algorithms: ['HS256'],
       }) as JwtPayload;

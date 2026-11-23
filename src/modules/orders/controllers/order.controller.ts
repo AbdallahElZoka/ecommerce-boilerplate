@@ -1,6 +1,6 @@
 import type { Request, Response, NextFunction } from 'express';
 import { orderService } from '../services/order.service.js';
-import type { CreateOrderInput } from '../models/schemas.js';
+import type { CreateOrderRequest } from '../models/schemas.js';
 
 export class OrderController {
   async create(req: Request, res: Response, next: NextFunction): Promise<void> {
@@ -9,7 +9,7 @@ export class OrderController {
         res.status(401).json({ success: false, error: { code: 'UNAUTHORIZED', message: 'Auth required' } });
         return;
       }
-      const input = req.body as CreateOrderInput;
+      const input = req.body as CreateOrderRequest;
       const order = await orderService.create(req.user.id, input);
       res.status(201).json({ success: true, data: order });
     } catch (err) {

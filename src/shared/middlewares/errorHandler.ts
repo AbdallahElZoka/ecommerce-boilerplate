@@ -1,7 +1,7 @@
 import type { Request, Response, NextFunction } from 'express';
 import { ZodError } from 'zod';
-import { AppError } from '../errors/AppError.js';
-import { env } from '../../config/env.js';
+import { AppError } from '../errors/AppError';
+import { env } from '../../config/env';
 
 export interface ApiResponse<T = unknown> {
   success: boolean;

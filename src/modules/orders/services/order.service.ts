@@ -1,10 +1,10 @@
 import { orderRepository } from '../repositories/order.repository.js';
 import { productService } from '../../products/index.js';
 import { AppError } from '../../../shared/errors/AppError.js';
-import type { CreateOrderInput } from '../models/schemas.js';
+import type { CreateOrderRequest } from '../models/schemas.js';
 
 export class OrderService {
-  async create(userId: string, input: CreateOrderInput) {
+  async create(userId: string, input: CreateOrderRequest) {
     // Cross-module communication via public service interface only
     const reservedItems: {
       productId: string;

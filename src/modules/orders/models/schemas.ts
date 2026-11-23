@@ -21,4 +21,4 @@ export const createOrderSchema = z.object({
     .optional(),
 });
 
-export type CreateOrderInput = z.infer<typeof createOrderSchema>;
+export type CreateOrderRequest = z.infer<typeof createOrderSchema>;
